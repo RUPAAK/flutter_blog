@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import 'card.dart';
 
 class Logo extends StatelessWidget {
   double? fontHeight = 5;
@@ -10,8 +13,8 @@ class Logo extends StatelessWidget {
     return Container(
       child: Text(
         'C',
-        style: TextStyle(color: Colors.red, fontSize: fontHeight, fontWeight: FontWeight.w500),
+        style: TextStyle(fontFamily: 'Hubballi',fontSize: 100,fontWeight: FontWeight.w600,color: Color.fromARGB(255, 154, 122, 243)),
       ),
     );
-  }
+  } 
 }
