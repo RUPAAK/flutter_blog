@@ -1,5 +1,6 @@
 import 'package:blog_app/screens/home.dart';
 import 'package:blog_app/screens/onboarding-screens/first-onboarding.dart';
+import 'package:blog_app/screens/options.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -30,8 +31,8 @@ class MyApp extends StatelessWidget {
       home: SafeArea(
           child: Scaffold(
               body: initScreen == 0 || initScreen == null
-                  ? FirstScreen()
-                  : FirstScreen())),
+                  ? OptionScreen()
+                  : OptionScreen())),
     );
   }
 }
