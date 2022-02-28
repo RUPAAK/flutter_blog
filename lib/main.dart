@@ -22,12 +22,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: initScreen == 0 || initScreen == null ? '/onboarding' : '/',
-      routes: {
-        "/onboarding": (context) => FirstScreen(),
-        "/": (context) => HomeScreen(),
-      },
+      // routes: {
+      //   "/onboarding": (context) => FirstScreen(),
+      //   "/": (context) => FirstScreen(),
+      // },
       debugShowCheckedModeBanner: false,
+      home: SafeArea(
+          child: Scaffold(
+              body: initScreen == 0 || initScreen == null
+                  ? FirstScreen()
+                  : FirstScreen())),
     );
   }
 }

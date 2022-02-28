@@ -1,30 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'card.dart';
 
 class Logo extends StatelessWidget {
-  const Logo({Key? key}) : super(key: key);
+  double? fontHeight = 5;
+
+  Logo({Key? key, this.fontHeight}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-              child: AppCard(
-                  borderstyle: Border.all(color: Colors.black, width: 2),
-                  boxShadowColor: Colors.white,
-                  child: Column(
-                    children: [
-                      Text(
-                        'C',
-                        style: TextStyle(fontSize: 30),
-                      )
-                    ],
-                  )))
-        ],
+      child: Text(
+        'C',
+        style: TextStyle(fontFamily: 'Hubballi',fontSize: 100,fontWeight: FontWeight.w600,color: Color.fromARGB(255, 154, 122, 243)),
       ),
     );
-  }
+  } 
 }
