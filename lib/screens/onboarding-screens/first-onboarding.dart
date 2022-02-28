@@ -1,13 +1,21 @@
+import 'package:blog_app/common/logo.dart';
 import 'package:flutter/material.dart';
 
 class FirstScreen extends StatelessWidget {
-  const FirstScreen({Key? key}) : super(key: key);
+  FirstScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox.expand(
+    return SafeArea(
+      child: SizedBox.expand(
+          child: Center(
         child: Container(
-      child: Text("Hello"),
-    ));
+          // color: Colors.white,
+          child: Logo(
+            fontHeight: 80,
+          ),
+        ),
+      )),
+    );
   }
 }
