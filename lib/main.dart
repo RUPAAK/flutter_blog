@@ -31,8 +31,8 @@ class MyApp extends StatelessWidget {
       home: SafeArea(
           child: Scaffold(
               body: initScreen == 0 || initScreen == null
-                  ? OptionScreen()
-                  : OptionScreen())),
+                  ? FirstScreen()
+                  : FirstScreen())),
     );
   }
 }

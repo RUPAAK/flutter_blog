@@ -9,11 +9,22 @@ class FirstScreen extends StatelessWidget {
     return SafeArea(
       child: SizedBox.expand(
           child: Center(
-        child: Container(
-          // color: Colors.white,
-          child: Logo(
-            fontHeight: 80,
-          ),
+        child: Column(
+          children: [
+            Container(
+              // color: Colors.white,
+              child: Logo(
+                fontHeight: 80,
+              ),
+            ),
+            Expanded(
+              child: Align(
+                  alignment: FractionalOffset.bottomCenter,
+                  child: Container(
+                      margin: EdgeInsets.only(bottom: 30.0,),
+                      child: Text('Powered by Us', style: TextStyle(color: Color.fromARGB(95, 14, 13, 13)),))),
+            ),
+          ],
         ),
       )),
     );
