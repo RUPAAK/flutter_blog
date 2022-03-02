@@ -9,15 +9,28 @@ class FirstScreen extends StatefulWidget {
   State<FirstScreen> createState() => _FirstScreenState();
 }
 
-class _FirstScreenState extends State<FirstScreen> {
+class _FirstScreenState extends State<FirstScreen>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
+
+  @override
+  void initState() {
+    _animationController =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 1000));
+
+    _animationController.forward();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    void _navigateToAnother() async {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => OptionScreen()));
-    }
-
-    Future.delayed(Duration(milliseconds: 2000), () {
+    Future.delayed(Duration(milliseconds: 3000), () {
       Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(builder: (context) => OptionScreen()),
@@ -26,29 +39,44 @@ class _FirstScreenState extends State<FirstScreen> {
 
     return SafeArea(
       child: SizedBox.expand(
-          child: Center(
-        child: Column(
-          children: [
-            Container(
-              // color: Colors.white,
-              child: Logo(
-                fontHeight: 80,
+          child: Column(
+        children: [
+          Expanded(
+            flex: 6,
+            child: Center(
+              child: Container(
+                // color: Colors.white,
+                child: Logo(
+                  animationController: _animationController,
+                  fontHeight: 100,
+                ),
               ),
             ),
-            // Expanded(
-            //   child: Align(
-            //       alignment: FractionalOffset.bottomCenter,
-            //       child: Container(
-            //           margin: EdgeInsets.only(
-            //             bottom: 30.0,
-            //           ),
-            //           child: Text(
-            //             'Powered by Us',
-            //             style: TextStyle(color: Color.fromARGB(95, 14, 13, 13)),
-            //           ))),
-            // ),
-          ],
-        ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Center(
+              child: Container(
+                child: Text(
+                  'Developed by Rojesh & Rupak',
+                  style: TextStyle(color: Colors.grey),
+                ),
+              ),
+            ),
+          ),
+          // Expanded(
+          //   child: Align(
+          //       alignment: FractionalOffset.bottomCenter,
+          //       child: Container(
+          //           margin: EdgeInsets.only(
+          //             bottom: 30.0,
+          //           ),
+          //           child: Text(
+          //             'Powered by Us',
+          //             style: TextStyle(color: Color.fromARGB(95, 14, 13, 13)),
+          //           ))),
+          // ),
+        ],
       )),
     );
   }
