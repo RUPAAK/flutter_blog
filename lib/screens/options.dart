@@ -49,67 +49,69 @@ class OptionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12.0),
-      child: Column(
-        // mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Logo(
-                  fontHeight: 60,
-                ),
-                Text(
-                  "Log in",
-                  style: TextStyle(
-                      color: Colors.red,
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold),
-                )
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 5.0),
-            child: Text(
-              "Pick Topic to Start Reading.....",
-              style: TextStyle(
-                  fontSize: 30.0,
-                  letterSpacing: 1.0,
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
-          Container(
-            padding: const EdgeInsets.symmetric(vertical: 20.0),
-            child: Wrap(
-              children: getList(),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 8.0),
-            child: Center(
-                child: Container(
-              width: MediaQuery.of(context).size.width * 0.7,
-              height: 45.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(25.0),
-                color: Color.fromARGB(255, 213, 17, 3),
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12.0),
+        child: Column(
+          // mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Logo(
+                    fontHeight: 60,
+                  ),
+                  Text(
+                    "Log in",
+                    style: TextStyle(
+                        color: Colors.red,
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold),
+                  )
+                ],
               ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5.0),
+              child: Text(
+                "Pick Topic to Start Reading.....",
+                style: TextStyle(
+                    fontSize: 30.0,
+                    letterSpacing: 1.0,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 20.0),
+              child: Wrap(
+                children: getList(),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
               child: Center(
-                child: Text(
-                  'Continue',
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
+                  child: Container(
+                width: MediaQuery.of(context).size.width * 0.7,
+                height: 45.0,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(25.0),
+                  color: Color.fromARGB(255, 213, 17, 3),
                 ),
-              ),
-            )),
-          )
-        ],
+                child: Center(
+                  child: Text(
+                    'Continue',
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              )),
+            )
+          ],
+        ),
       ),
     );
   }
