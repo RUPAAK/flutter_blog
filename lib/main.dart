@@ -1,4 +1,4 @@
-import 'package:blog_app/screens/home.dart';
+import 'package:blog_app/screens/login.dart';
 import 'package:blog_app/screens/onboarding-screens/first-onboarding.dart';
 import 'package:blog_app/screens/options.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
           child: Scaffold(
               body: initScreen == 0 || initScreen == null
                   ? FirstScreen()
-                  : FirstScreen())),
+                  : LoginScreen())),
     );
   }
 }

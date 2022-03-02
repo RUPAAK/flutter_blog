@@ -1,7 +1,15 @@
 import 'package:blog_app/common/logo.dart';
+import 'package:blog_app/screens/login.dart';
 import 'package:flutter/material.dart';
 
-class OptionScreen extends StatelessWidget {
+class OptionScreen extends StatefulWidget {
+  OptionScreen({Key? key}) : super(key: key);
+
+  @override
+  State<OptionScreen> createState() => _OptionScreenState();
+}
+
+class _OptionScreenState extends State<OptionScreen> {
   List<String> options = [
     'UI Design',
     "UX Design",
@@ -27,21 +35,34 @@ class OptionScreen extends StatelessWidget {
     "Creative"
   ];
 
-  OptionScreen({Key? key}) : super(key: key);
+  String selectedOption = '';
 
   List<Widget> getList() {
     List<Widget> childs = [];
     for (var i = 0; i < options.length; i++) {
-      childs.add(Container(
-        margin: EdgeInsets.only(right: 8.0, bottom: 4.0),
-        child: new Chip(
-            backgroundColor: Color.fromARGB(255, 215, 240, 217),
-            padding: EdgeInsets.symmetric(vertical: 9.0, horizontal: 6.0),
-            shape: StadiumBorder(side: BorderSide(width: 0.1)),
-            label: Text(
-              options[i],
-              style: TextStyle(fontSize: 15.0),
-            )),
+      childs.add(InkWell(
+        onTap: () {
+          setState(() {
+            selectedOption = options[i];
+          });
+        },
+        child: Container(
+          margin: EdgeInsets.only(right: 8.0, bottom: 4.0),
+          child: new Chip(
+              backgroundColor: Color.fromARGB(255, 215, 240, 217),
+              padding: EdgeInsets.symmetric(vertical: 9.0, horizontal: 6.0),
+              shape: selectedOption == options[i]
+                  ? StadiumBorder(
+                      side: BorderSide(width: 0.4),
+                    )
+                  : StadiumBorder(
+                      side: BorderSide(width: 0.1),
+                    ),
+              label: Text(
+                options[i],
+                style: TextStyle(fontSize: 15.0),
+              )),
+        ),
       ));
     }
     return childs;
@@ -65,12 +86,21 @@ class OptionScreen extends StatelessWidget {
                   Logo(
                     fontHeight: 60,
                   ),
-                  Text(
-                    "Log in",
-                    style: TextStyle(
-                        color: Colors.red,
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LoginScreen()),
+                          (route) => false);
+                    },
+                    child: Text(
+                      "Log in",
+                      style: TextStyle(
+                          color: Colors.red,
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold),
+                    ),
                   )
                 ],
               ),
@@ -94,18 +124,32 @@ class OptionScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: Center(
-                  child: Container(
-                width: MediaQuery.of(context).size.width * 0.7,
-                height: 45.0,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(25.0),
-                  color: Color.fromARGB(255, 213, 17, 3),
-                ),
-                child: Center(
-                  child: Text(
-                    'Continue',
-                    style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
+                  child: InkWell(
+                onTap: () {
+                  if (selectedOption == null || selectedOption == '') {
+                    return null;
+                  } else {
+                    Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                        (route) => false);
+                  }
+                },
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.7,
+                  height: 45.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(25.0),
+                    color: selectedOption == '' || selectedOption == null
+                        ? Color.fromARGB(255, 218, 140, 135)
+                        : Color.fromARGB(255, 213, 17, 3),
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Continue',
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
               )),
