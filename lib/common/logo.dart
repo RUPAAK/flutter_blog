@@ -20,7 +20,7 @@ class Logo extends StatelessWidget {
               fontFamily: 'Hubballi',
               fontSize: fontHeight,
               fontWeight: FontWeight.bold,
-              color: Color.fromARGB(255, 255, 0, 149)),
+              color: Color.fromARGB(255, 235, 76, 208)),
         ),
       );
     } else {
@@ -36,7 +36,7 @@ class Logo extends StatelessWidget {
                   fontFamily: 'Hubballi',
                   fontSize: fontHeight,
                   fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 255, 0, 149)),
+                  color: Color.fromARGB(255, 235, 76, 208)),
             ),
           ),
         ),
