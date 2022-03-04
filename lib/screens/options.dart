@@ -1,5 +1,5 @@
 import 'package:blog_app/common/logo.dart';
-import 'package:blog_app/screens/login.dart';
+import 'package:blog_app/screens/login/login-options.dart';
 import 'package:flutter/material.dart';
 
 class OptionScreen extends StatefulWidget {

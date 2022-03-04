@@ -1,6 +1,7 @@
+import 'package:blog_app/screens/login/login-email.dart';
 import 'package:flutter/material.dart';
 
-import '../common/logo.dart';
+import '../../common/logo.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -47,6 +48,11 @@ class LoginScreen extends StatelessWidget {
                       child: Container(
                         width: MediaQuery.of(context).size.width,
                         child: FloatingActionButton.extended(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => LoginEmail()));
+                          },
+                          heroTag: null,
                           label: Text('Continue with Apple'), // <-- Text
                           backgroundColor: Colors.black,
                           icon: Icon(
@@ -54,7 +60,11 @@ class LoginScreen extends StatelessWidget {
                             Icons.phone_iphone,
                             size: 24.0,
                           ),
-                          onPressed: () {},
+                          // onPressed: () {
+                          //   print('hi');
+                          //   Navigator.of(context).push(MaterialPageRoute(
+                          //       builder: (context) => LoginEmail()));
+                          // },
                         ),
                       )),
                   Padding(
@@ -62,6 +72,8 @@ class LoginScreen extends StatelessWidget {
                       child: Container(
                         width: MediaQuery.of(context).size.width,
                         child: FloatingActionButton.extended(
+                          heroTag: null,
+
                           label: Text('Continue with Google'), // <-- Text
                           backgroundColor: Colors.blue,
                           icon: Icon(
@@ -69,7 +81,10 @@ class LoginScreen extends StatelessWidget {
                             Icons.g_mobiledata,
                             size: 24.0,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => LoginEmail()));
+                          },
                         ),
                       )),
                   Padding(
@@ -77,6 +92,8 @@ class LoginScreen extends StatelessWidget {
                       child: Container(
                         width: MediaQuery.of(context).size.width,
                         child: FloatingActionButton.extended(
+                          heroTag: null,
+
                           label: Text('Continue with Email'), // <-- T
                           backgroundColor: Colors.red,
                           icon: Icon(
@@ -84,7 +101,10 @@ class LoginScreen extends StatelessWidget {
                             Icons.mail,
                             size: 24.0,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => LoginEmail()));
+                          },
                         ),
                       )),
                   Padding(
