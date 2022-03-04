@@ -73,7 +73,7 @@ class loginPassword extends StatelessWidget {
                        Container(child: TextFormField(
   decoration: const InputDecoration(
     border: UnderlineInputBorder(),
-    labelText: 'Username or Email',
+    labelText: 'Enter your password',
   ),
 ),),Padding(
               padding: const EdgeInsets.symmetric(vertical: 20.0),
