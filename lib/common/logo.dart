@@ -4,23 +4,38 @@ import 'package:google_fonts/google_fonts.dart';
 import 'card.dart';
 
 class Logo extends StatelessWidget {
-  final AnimationController? animationController;
+  AnimationController? animationController;
 
   double? fontHeight = 5;
+  BorderRadius? borderRadius;
+  Color? background;
+  Color? color;
 
-  Logo({Key? key, this.fontHeight, this.animationController}) : super(key: key);
+  Logo(
+      {Key? key,
+      this.fontHeight,
+      this.animationController,
+      this.borderRadius,
+      this.background,
+      this.color})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     if (animationController == null) {
       return Container(
-        child: Text(
-          'C',
-          style: TextStyle(
-              fontFamily: 'Hubballi',
-              fontSize: fontHeight,
-              fontWeight: FontWeight.bold,
-              color: Color.fromARGB(255, 235, 76, 208)),
+        decoration:
+            BoxDecoration(shape: BoxShape.circle, color: background ?? null),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            'C',
+            style: TextStyle(
+                fontFamily: 'Hubballi',
+                fontSize: fontHeight,
+                fontWeight: FontWeight.bold,
+                color: color ?? Color.fromARGB(255, 235, 76, 208)),
+          ),
         ),
       );
     } else {
@@ -30,13 +45,15 @@ class Logo extends StatelessWidget {
         child: FadeTransition(
           opacity: animationController!,
           child: Container(
+            decoration: BoxDecoration(
+                shape: BoxShape.circle, color: background ?? null),
             child: Text(
               'C',
               style: TextStyle(
                   fontFamily: 'Hubballi',
                   fontSize: fontHeight,
                   fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 235, 76, 208)),
+                  color: color ?? Color.fromARGB(255, 235, 76, 208)),
             ),
           ),
         ),
