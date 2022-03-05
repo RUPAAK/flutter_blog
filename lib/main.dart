@@ -1,6 +1,6 @@
 import 'package:blog_app/screens/login/login-options.dart';
 import 'package:blog_app/screens/login/login-email.dart';
-import 'package:blog_app/screens/login/loginPassword.dart';
+import 'package:blog_app/screens/login/login-password.dart';
 import 'package:blog_app/screens/onboarding-screens/first-onboarding.dart';
 import 'package:blog_app/screens/options.dart';
 import 'package:flutter/material.dart';

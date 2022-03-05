@@ -1,14 +1,20 @@
+import 'package:blog_app/screens/login/login-email.dart';
 import 'package:blog_app/screens/login/login-password.dart';
 import 'package:flutter/material.dart';
 
-
-class LoginEmail extends StatelessWidget {
-  const LoginEmail({ Key? key }) : super(key: key);
-  
+class ForgetPassword extends StatefulWidget {
+  const ForgetPassword({ Key? key }) : super(key: key);
 
   @override
+  State<ForgetPassword> createState() => _ForgetPasswordState();
+}
+
+class _ForgetPasswordState extends State<ForgetPassword> {
+  @override
+  bool _isObscure = true;
+
   Widget build(BuildContext context) {
-    double deviceHeight(BuildContext context) =>
+   double deviceHeight(BuildContext context) =>
         MediaQuery.of(context).size.height;
 
     return SafeArea(
@@ -26,7 +32,8 @@ class LoginEmail extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                  RawMaterialButton(
-                    onPressed: () {},
+                    onPressed: () { Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => loginPassword()));},
                     elevation: 2.0,
                     fillColor: Colors.white,
                     child: Icon(Icons.arrow_back_sharp),
@@ -41,7 +48,7 @@ class LoginEmail extends StatelessWidget {
                       width: MediaQuery.of(context).size.width * 0.8,
                       // color: Colors.red,
                       child: Text(
-                        "Welcome To Confect",
+                        "Reset Password",
                         style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
@@ -63,16 +70,35 @@ class LoginEmail extends StatelessWidget {
                       ),
                     ),
                   ),
-                       
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(child: TextFormField(
-                               decoration: const InputDecoration(
-                                border: UnderlineInputBorder(),
-                                labelText: 'Username or Email',
-                                  ),
-                                ),),
-                      ),
+        padding:  const EdgeInsets.symmetric(vertical: 20),
+        child: Center(
+          child: TextField(
+            obscureText: _isObscure,
+            decoration: InputDecoration(
+                labelText: 'New Password',
+                suffixIcon: IconButton(
+                    icon: Icon(
+                        _isObscure ? Icons.visibility : Icons.visibility_off),
+                    onPressed: () {
+                      setState(() {
+                        _isObscure = !_isObscure;
+                      });}))))),
+                       Padding(
+        padding:  const EdgeInsets.symmetric(vertical: 20),
+        child: Center(
+          child: TextField(
+            obscureText: _isObscure,
+            decoration: InputDecoration(
+                labelText:  'Confirm Password',
+                suffixIcon: IconButton(
+                    icon: Icon(
+                        _isObscure ? Icons.visibility : Icons.visibility_off),
+                    onPressed: () {
+                      setState(() {
+                        _isObscure = !_isObscure;
+                      });}))))),
+         
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 25.0),
                       child: Container(

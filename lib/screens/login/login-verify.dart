@@ -1,18 +1,24 @@
-import 'package:blog_app/screens/login/login-password.dart';
 import 'package:flutter/material.dart';
 
 
-class LoginEmail extends StatelessWidget {
-  const LoginEmail({ Key? key }) : super(key: key);
+ class LoginVerify extends StatefulWidget {
+   const LoginVerify({ Key? key }) : super(key: key);
+   @override
+   State<LoginVerify> createState() => _LoginVerifyState();
   
 
-  @override
-  Widget build(BuildContext context) {
+ }
+ 
+ class _LoginVerifyState extends State<LoginVerify> {
+   
+   
+   @override
+   Widget build(BuildContext context) {
+     
     double deviceHeight(BuildContext context) =>
         MediaQuery.of(context).size.height;
-
-    return SafeArea(
-        child: Scaffold(
+     return SafeArea(
+       child: Scaffold(
           body: Container(
             child: Padding(padding:EdgeInsets.fromLTRB(15, deviceHeight(context) * 0.14, 15, 0),
             child: Column(
@@ -41,7 +47,7 @@ class LoginEmail extends StatelessWidget {
                       width: MediaQuery.of(context).size.width * 0.8,
                       // color: Colors.red,
                       child: Text(
-                        "Welcome To Confect",
+                        "Verification Code",
                         style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
@@ -55,7 +61,7 @@ class LoginEmail extends StatelessWidget {
                       width: MediaQuery.of(context).size.width * 0.8,
                       // color: Colors.red,
                       child: Text(
-                        "Enter your username or email address",
+                        "We send code to your email address",
                         style: TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
@@ -63,24 +69,14 @@ class LoginEmail extends StatelessWidget {
                       ),
                     ),
                   ),
-                       
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(child: TextFormField(
-                               decoration: const InputDecoration(
-                                border: UnderlineInputBorder(),
-                                labelText: 'Username or Email',
-                                  ),
-                                ),),
-                      ),
+                      
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 25.0),
                       child: Container(
                         width: MediaQuery.of(context).size.width,
                         child: FloatingActionButton.extended(
                           onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => loginPassword()));
+                            
                           },
                           heroTag: null,
                           label: Text('Continue'), // <-- Text
@@ -94,6 +90,7 @@ class LoginEmail extends StatelessWidget {
           ),
           
          ) )
-    );
-  }
-}
+       
+     );
+   }
+ }
