@@ -1,3 +1,4 @@
+import 'package:blog_app/screens/login/login-email.dart';
 import 'package:flutter/material.dart';
 
 
@@ -32,7 +33,8 @@ import 'package:flutter/material.dart';
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                  RawMaterialButton(
-                    onPressed: () {},
+                    onPressed: () {Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => LoginEmail()));},
                     elevation: 2.0,
                     fillColor: Colors.white,
                     child: Icon(Icons.arrow_back_sharp),
