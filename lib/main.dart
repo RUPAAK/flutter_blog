@@ -1,3 +1,4 @@
+import 'package:blog_app/common/logo.dart';
 import 'package:blog_app/screens/login/login-options.dart';
 import 'package:blog_app/screens/login/login-email.dart';
 import 'package:blog_app/screens/login/login-password.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
           child: Scaffold(
               body: initScreen == 0 || initScreen == null
                   ? FirstScreen()
-                  : LoginScreen()
+                  : OptionScreen()
                   )),
     );
   }

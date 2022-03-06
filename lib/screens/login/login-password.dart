@@ -13,7 +13,8 @@ class loginPassword extends StatelessWidget {
         MediaQuery.of(context).size.height;
 
 
-    return Scaffold(
+    return SafeArea(
+      child:Scaffold(
       body: Container(
         child: Padding(
           padding:EdgeInsets.fromLTRB(15, deviceHeight(context) * 0.14, 15, 0),
@@ -106,7 +107,7 @@ class loginPassword extends StatelessWidget {
             ])
             
             
-                      ),
+                      ),)
       ));
   }
 }

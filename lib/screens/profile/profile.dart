@@ -1,26 +1,20 @@
-import 'package:blog_app/screens/login/login-email.dart';
-import 'package:blog_app/screens/profile/profile.dart';
+import 'package:blog_app/screens/subcription/subscriptions.dart';
 import 'package:flutter/material.dart';
+class profile extends StatefulWidget {
+  const profile({ Key? key }) : super(key: key);
 
+  @override
+  State<profile> createState() => _profileState();
+}
 
- class LoginVerify extends StatefulWidget {
-   const LoginVerify({ Key? key }) : super(key: key);
-   @override
-   State<LoginVerify> createState() => _LoginVerifyState();
-  
-
- }
- 
- class _LoginVerifyState extends State<LoginVerify> {
-   
-   
-   @override
-   Widget build(BuildContext context) {
-     
-    double deviceHeight(BuildContext context) =>
+class _profileState extends State<profile> {
+  @override
+  Widget build(BuildContext context) {
+      double deviceHeight(BuildContext context) =>
         MediaQuery.of(context).size.height;
-     return SafeArea(
-       child: Scaffold(
+
+    return SafeArea(
+        child: Scaffold(
           body: Container(
             child: Padding(padding:EdgeInsets.fromLTRB(15, deviceHeight(context) * 0.14, 15, 0),
             child: Column(
@@ -34,8 +28,7 @@ import 'package:flutter/material.dart';
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                  RawMaterialButton(
-                    onPressed: () {Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => LoginEmail()));},
+                    onPressed: () {},
                     elevation: 2.0,
                     fillColor: Colors.white,
                     child: Icon(Icons.arrow_back_sharp),
@@ -50,7 +43,7 @@ import 'package:flutter/material.dart';
                       width: MediaQuery.of(context).size.width * 0.8,
                       // color: Colors.red,
                       child: Text(
-                        "Verification Code",
+                        "Start Your Profile",
                         style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
@@ -64,7 +57,7 @@ import 'package:flutter/material.dart';
                       width: MediaQuery.of(context).size.width * 0.8,
                       // color: Colors.red,
                       child: Text(
-                        "We send code to your email address",
+                        "This is how you're displayed in community",
                         style: TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
@@ -72,7 +65,29 @@ import 'package:flutter/material.dart';
                       ),
                     ),
                   ),
+                      Padding(padding: const EdgeInsets.symmetric(vertical: 20),
+                    child: Container(
+                      width:90,
+                      height: 90,
+                      // color: Colors.red,
+                    decoration: BoxDecoration(
+                      border: Border.all(width: 4,color: Colors.white),
+                      boxShadow:[
+                        BoxShadow(
+                          spreadRadius: 2,
+                          blurRadius: 10,
+                          color: Colors.black.withOpacity(0.1),
+                        )
+                      ],
+                      shape: BoxShape.circle,
+                      image: DecorationImage(fit: BoxFit.cover,image:NetworkImage('https://www.filmibeat.com/ph-big/2011/09/1316088442375379.jpg')) 
+                    ),
                       
+     
+
+                  ),
+                    ),
+                  
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 25.0),
                       child: Container(
@@ -80,7 +95,7 @@ import 'package:flutter/material.dart';
                         child: FloatingActionButton.extended(
                           onPressed: () {
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => profile()));
+                                builder: (context) => Subscriptions()));
                           },
                           heroTag: null,
                           label: Text('Continue'), // <-- Text
@@ -94,7 +109,6 @@ import 'package:flutter/material.dart';
           ),
           
          ) )
-       
-     );
-   }
- }
+    );
+  }
+}
