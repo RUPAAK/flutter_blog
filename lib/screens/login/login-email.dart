@@ -1,10 +1,9 @@
+import 'package:blog_app/screens/login/login-options.dart';
 import 'package:blog_app/screens/login/login-password.dart';
 import 'package:flutter/material.dart';
 
-
 class LoginEmail extends StatelessWidget {
-  const LoginEmail({ Key? key }) : super(key: key);
-  
+  const LoginEmail({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,87 +12,84 @@ class LoginEmail extends StatelessWidget {
 
     return SafeArea(
         child: Scaffold(
-          body: Container(
-            child: Padding(padding:EdgeInsets.fromLTRB(15, deviceHeight(context) * 0.14, 15, 0),
-            child: Column(
-          // mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
+            body: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                 RawMaterialButton(
-                    onPressed: () {},
-                    elevation: 2.0,
-                    fillColor: Colors.white,
-                    child: Icon(Icons.arrow_back_sharp),
-                    padding: EdgeInsets.all(15.0),
-                    shape: CircleBorder(),
-                  )
-                 ] ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20.0, bottom: 50.0),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                    (route) => false);
+              },
+              child: Icon(Icons.arrow_back, color: Colors.white),
+              style: ElevatedButton.styleFrom(
+                shape: CircleBorder(),
+                primary: Colors.blue, // <-- Button color
+                onPrimary: Colors.red, // <-- Splash color
               ),
-             Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 20),
-                    child: Container(
-                      width: MediaQuery.of(context).size.width * 0.8,
-                      // color: Colors.red,
-                      child: Text(
-                        "Welcome To Confect",
-                        style: TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 0.4),
-                      ),
-                    ),
-                  ),
-                         Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 20),
-                    child: Container(
-                      width: MediaQuery.of(context).size.width * 0.8,
-                      // color: Colors.red,
-                      child: Text(
-                        "Enter your username or email address",
-                        style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 0.4),
-                      ),
-                    ),
-                  ),
-                       
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(child: TextFormField(
-                               decoration: const InputDecoration(
-                                border: UnderlineInputBorder(),
-                                labelText: 'Username or Email',
-                                  ),
-                                ),),
-                      ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 25.0),
-                      child: Container(
-                        width: MediaQuery.of(context).size.width,
-                        child: FloatingActionButton.extended(
-                          onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => loginPassword()));
-                          },
-                          heroTag: null,
-                          label: Text('Continue'), // <-- Text
-                          backgroundColor: Colors.red,
-                        
-                         
-                          
-                        ),
-                      )),
-          ])
+            ),
           ),
-          
-         ) )
-    );
+          Padding(
+            padding: const EdgeInsets.only(left: 18, right: 18),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.8,
+                  // color: Colors.red,
+                  child: Text(
+                    "Welcome",
+                    style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 0.4),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10.0),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    // color: Colors.red,
+                    child: Text(
+                      "Enter your username or email address",
+                      style: TextStyle(
+                          fontSize: 15,
+                          // fontWeight: FontWeight.bold,
+                          letterSpacing: 0.4),
+                    ),
+                  ),
+                ),
+                Container(
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      border: UnderlineInputBorder(),
+                      labelText: 'Username or Email',
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 80.0),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    child: FloatingActionButton.extended(
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => LoginPassword()));
+                      },
+                      heroTag: null,
+                      label: Text('Continue'), // <-- Text
+                      backgroundColor: Colors.red,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
+        ])));
   }
 }
