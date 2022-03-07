@@ -57,7 +57,7 @@ class LoginScreen extends StatelessWidget {
                           backgroundColor: Colors.black,
                           icon: Icon(
                             // <-- Icon
-                            Icons.apple,
+                            Icons.phone_iphone,
                             size: 24.0,
                           ),
                           // onPressed: () {

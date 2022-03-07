@@ -4,14 +4,10 @@ import 'package:blog_app/screens/login/login-email.dart';
 import 'package:blog_app/screens/login/login-options.dart';
 import 'package:blog_app/screens/login/login-password.dart';
 import 'package:blog_app/screens/login/login-verify.dart';
-import 'package:blog_app/screens/login/reset-password.dart';
 import 'package:flutter/material.dart';
-import 'package:otp_text_field/otp_field.dart';
-import 'package:otp_text_field/otp_field_style.dart';
-import 'package:otp_text_field/style.dart';
 
-class LoginVerify extends StatelessWidget {
-  const LoginVerify({Key? key}) : super(key: key);
+class ResetPassword extends StatelessWidget {
+  const ResetPassword({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +29,7 @@ class LoginVerify extends StatelessWidget {
                     onPressed: () {
                       Navigator.pushAndRemoveUntil(
                           context,
-                          MaterialPageRoute(builder: (context) => LoginPassword()),
+                          MaterialPageRoute(builder: (context) => LoginVerify()),
                           (route) => false);
                     },
                     child: Icon(Icons.arrow_back, color: Colors.white),
@@ -63,7 +59,7 @@ class LoginVerify extends StatelessWidget {
                   width: MediaQuery.of(context).size.width * 0.8,
                   // color: Colors.red,
                   child: Text(
-                    "Verification Code",
+                    "Reset Password",
                     style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
@@ -76,7 +72,7 @@ class LoginVerify extends StatelessWidget {
                     width: MediaQuery.of(context).size.width * 0.8,
                     // color: Colors.red,
                     child: Text(
-                      "Check code at rupakt525@gmail.com",
+                      "Enter your new password",
                       style: TextStyle(
                           fontSize: 15,
                           // fontWeight: FontWeight.bold,
@@ -84,25 +80,25 @@ class LoginVerify extends StatelessWidget {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: Center(
-                    child: OTPTextField(
-                      length: 5,
-                      otpFieldStyle: OtpFieldStyle(
-                        backgroundColor: Colors.grey[200]!,
-                        borderColor: Colors.white,
-                      ),
-                      width: MediaQuery.of(context).size.width,
-                      fieldWidth: 55,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700,
-                      ),
-                      textFieldAlignment: MainAxisAlignment.spaceAround,
-                      fieldStyle: FieldStyle.box,
-                      onChanged: (_) {},
-                      onCompleted: (_) {},
+                Container(
+                  child: TextFormField(
+                    obscureText: true,
+                    enableSuggestions: false,
+                    autocorrect: false,
+                    decoration: const InputDecoration(
+                      border: UnderlineInputBorder(),
+                      labelText: 'New Password',
+                    ),
+                  ),
+                ),
+                Container(
+                  child: TextFormField(
+                    obscureText: true,
+                    enableSuggestions: false,
+                    autocorrect: false,
+                    decoration: const InputDecoration(
+                      border: UnderlineInputBorder(),
+                      labelText: 'Confirm Password',
                     ),
                   ),
                 ),
@@ -113,7 +109,7 @@ class LoginVerify extends StatelessWidget {
                     child: FloatingActionButton.extended(
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => ResetPassword()));
+                            builder: (context) => LoginVerify()));
                       },
                       heroTag: null,
                       label: Text('Continue'), // <-- Text
