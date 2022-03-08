@@ -5,6 +5,7 @@ import 'package:blog_app/screens/login/login-options.dart';
 import 'package:blog_app/screens/login/login-password.dart';
 import 'package:blog_app/screens/login/login-verify.dart';
 import 'package:blog_app/screens/login/reset-password.dart';
+import 'package:blog_app/screens/profile/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/otp_field_style.dart';
@@ -76,7 +77,7 @@ class LoginVerify extends StatelessWidget {
                     width: MediaQuery.of(context).size.width * 0.8,
                     // color: Colors.red,
                     child: Text(
-                      "Check code at rupakt525@gmail.com",
+                      "We send code to your email address",
                       style: TextStyle(
                           fontSize: 15,
                           // fontWeight: FontWeight.bold,

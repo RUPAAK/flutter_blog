@@ -1,3 +1,4 @@
+import 'package:blog_app/homepage.dart';
 import 'package:blog_app/screens/subcription/subscriptions.dart';
 import 'package:flutter/material.dart';
 class profile extends StatefulWidget {
@@ -95,7 +96,7 @@ class _profileState extends State<profile> {
                         child: FloatingActionButton.extended(
                           onPressed: () {
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => Subscriptions()));
+                                builder: (context) => Home()));
                           },
                           heroTag: null,
                           label: Text('Continue'), // <-- Text

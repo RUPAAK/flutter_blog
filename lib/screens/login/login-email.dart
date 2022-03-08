@@ -59,7 +59,7 @@ class LoginEmail extends StatelessWidget {
                       "Enter your username or email address",
                       style: TextStyle(
                           fontSize: 15,
-                          // fontWeight: FontWeight.bold,
+                         
                           letterSpacing: 0.4),
                     ),
                   ),
