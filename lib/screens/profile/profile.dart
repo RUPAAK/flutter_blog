@@ -104,7 +104,7 @@ class _profileState extends State<profile> {
                     child: FloatingActionButton.extended(
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => profile()));
+                            builder: (context) =>Home()));
                       },
                       heroTag: null,
                       label: Text('Continue'), // <-- Text
