@@ -87,26 +87,23 @@ class LoginVerify extends StatelessWidget {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: Center(
-                    child: OTPTextField(
-                      length: 5,
-                      otpFieldStyle: OtpFieldStyle(
-                        backgroundColor: Colors.grey[200]!,
-                        borderColor: Colors.white,
-                      ),
-                      width: MediaQuery.of(context).size.width,
-                      fieldWidth: 55,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700,
-                      ),
-                      textFieldAlignment: MainAxisAlignment.spaceAround,
-                      fieldStyle: FieldStyle.box,
-                      onChanged: (_) {},
-                      onCompleted: (_) {},
+                Center(
+                  child: OTPTextField(
+                    length: 6,
+                    otpFieldStyle: OtpFieldStyle(
+                      backgroundColor: Colors.grey[200]!,
+                      borderColor: Colors.white,
                     ),
+                    width: MediaQuery.of(context).size.width,
+                    fieldWidth: 45,
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                    ),
+                    textFieldAlignment: MainAxisAlignment.spaceAround,
+                    fieldStyle: FieldStyle.box,
+                    onChanged: (_) {},
+                    onCompleted: (_) {},
                   ),
                 ),
                 Padding(
