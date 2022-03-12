@@ -1,3 +1,4 @@
+import 'package:blog_app/common/animation/slide-transistion-route.dart';
 import 'package:blog_app/screens/login/login-options.dart';
 import 'package:blog_app/screens/login/login-password.dart';
 import 'package:flutter/material.dart';
@@ -57,10 +58,7 @@ class LoginEmail extends StatelessWidget {
                     // color: Colors.red,
                     child: Text(
                       "Enter your username or email address",
-                      style: TextStyle(
-                          fontSize: 15,
-                         
-                          letterSpacing: 0.4),
+                      style: TextStyle(fontSize: 15, letterSpacing: 0.4),
                     ),
                   ),
                 ),
@@ -78,8 +76,8 @@ class LoginEmail extends StatelessWidget {
                     width: MediaQuery.of(context).size.width,
                     child: FloatingActionButton.extended(
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => LoginPassword()));
+                        Navigator.of(context).push(
+                            SlideTransistionRoute(child: LoginPassword(), direction: AxisDirection.right));
                       },
                       heroTag: null,
                       label: Text('Continue'), // <-- Text

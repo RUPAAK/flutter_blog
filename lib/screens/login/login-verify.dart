@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:blog_app/common/animation/slide-transistion-route.dart';
 import 'package:blog_app/screens/login/login-email.dart';
 import 'package:blog_app/screens/login/login-options.dart';
 import 'package:blog_app/screens/login/login-password.dart';
@@ -34,7 +35,8 @@ class LoginVerify extends StatelessWidget {
                     onPressed: () {
                       Navigator.pushAndRemoveUntil(
                           context,
-                          MaterialPageRoute(builder: (context) => LoginPassword()),
+                          MaterialPageRoute(
+                              builder: (context) => LoginPassword()),
                           (route) => false);
                     },
                     child: Icon(Icons.arrow_back, color: Colors.white),
@@ -113,8 +115,9 @@ class LoginVerify extends StatelessWidget {
                     width: MediaQuery.of(context).size.width,
                     child: FloatingActionButton.extended(
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => ResetPassword()));
+                        Navigator.of(context).push(SlideTransistionRoute(
+                            child: ResetPassword(),
+                            direction: AxisDirection.right));
                       },
                       heroTag: null,
                       label: Text('Continue'), // <-- Text

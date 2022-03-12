@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:blog_app/common/animation/slide-transistion-route.dart';
 import 'package:blog_app/screens/login/login-email.dart';
 import 'package:blog_app/screens/login/login-options.dart';
 import 'package:blog_app/screens/login/login-password.dart';
@@ -30,7 +31,8 @@ class ResetPassword extends StatelessWidget {
                     onPressed: () {
                       Navigator.pushAndRemoveUntil(
                           context,
-                          MaterialPageRoute(builder: (context) => LoginVerify()),
+                          MaterialPageRoute(
+                              builder: (context) => LoginVerify()),
                           (route) => false);
                     },
                     child: Icon(Icons.arrow_back, color: Colors.white),
@@ -109,8 +111,8 @@ class ResetPassword extends StatelessWidget {
                     width: MediaQuery.of(context).size.width,
                     child: FloatingActionButton.extended(
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => profile()));
+                        Navigator.of(context).push(SlideTransistionRoute(
+                            child: Profile(), direction: AxisDirection.right));
                       },
                       heroTag: null,
                       label: Text('Continue'), // <-- Text
