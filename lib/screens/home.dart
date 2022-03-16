@@ -1,7 +1,7 @@
-import 'package:blog_app/screens/blog-detail/details.dart';
+import 'package:blog_app/screens/single-blog.dart';
 import 'package:flutter/material.dart';
 
-import 'common/animation/slide-transistion-route.dart';
+import '../common/animation/slide-transistion-route.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -164,7 +164,7 @@ class _HomeState extends State<Home> {
                           return GestureDetector(
                             onTap: () {
                               Navigator.of(context).push(SlideTransistionRoute(
-                                  child: Detail(),
+                                  child: SingleBlog(),
                                   direction: AxisDirection.right));
                             },
                             child: Column(

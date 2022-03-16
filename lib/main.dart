@@ -1,14 +1,14 @@
 import 'package:blog_app/common/logo.dart';
-import 'package:blog_app/homepage.dart';
+import 'package:blog_app/screens/home.dart';
 import 'package:blog_app/screens/login/login-options.dart';
 import 'package:blog_app/screens/login/login-email.dart';
 import 'package:blog_app/screens/login/login-password.dart';
-import 'package:blog_app/screens/onboarding-screens/first-onboarding.dart';
+import 'package:blog_app/screens/onboarding-screens/splash-screen.dart';
 import 'package:blog_app/screens/options.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-int? initScreen;
+int? initScreen;  
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
       home: SafeArea(
           child: Scaffold(
               body: initScreen == 0 || initScreen == null
-                  ? FirstScreen()
+                  ? SplashScreen()
                   : LoginScreen()
                   )),
     );

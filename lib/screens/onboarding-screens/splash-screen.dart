@@ -2,14 +2,14 @@ import 'package:blog_app/common/logo.dart';
 import 'package:blog_app/screens/options.dart';
 import 'package:flutter/material.dart';
 
-class FirstScreen extends StatefulWidget {
-  FirstScreen({Key? key}) : super(key: key);
+class SplashScreen extends StatefulWidget {
+  SplashScreen({Key? key}) : super(key: key);
 
   @override
-  State<FirstScreen> createState() => _FirstScreenState();
+  State<SplashScreen> createState() => _FirstScreenState();
 }
 
-class _FirstScreenState extends State<FirstScreen>
+class _FirstScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
 

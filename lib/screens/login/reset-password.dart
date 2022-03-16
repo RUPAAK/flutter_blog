@@ -5,7 +5,7 @@ import 'package:blog_app/screens/login/login-email.dart';
 import 'package:blog_app/screens/login/login-options.dart';
 import 'package:blog_app/screens/login/login-password.dart';
 import 'package:blog_app/screens/login/login-verify.dart';
-import 'package:blog_app/screens/profile/profile.dart';
+import 'package:blog_app/screens/profile.dart';
 import 'package:flutter/material.dart';
 
 class ResetPassword extends StatelessWidget {

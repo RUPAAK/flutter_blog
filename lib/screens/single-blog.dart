@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Detail extends StatefulWidget {
-  const Detail({Key? key}) : super(key: key);
+class SingleBlog extends StatefulWidget {
+  const SingleBlog({Key? key}) : super(key: key);
 
   @override
-  State<Detail> createState() => _DetailState();
+  State<SingleBlog> createState() => _SingleBlogState();
 }
 
-class _DetailState extends State<Detail> {
+class _SingleBlogState extends State<SingleBlog> {
   @override
   Widget build(BuildContext context) {
     double deviceHeight(BuildContext context) =>
