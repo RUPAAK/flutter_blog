@@ -4,6 +4,7 @@ import 'package:blog_app/screens/detail/details.dart';
 import 'package:blog_app/screens/login/login-options.dart';
 import 'package:blog_app/screens/login/login-password.dart';
 import 'package:blog_app/screens/login/reset-password.dart';
+import 'package:blog_app/screens/profile/myprofile.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatelessWidget {
@@ -111,7 +112,7 @@ class Profile extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushAndRemoveUntil(
                             context,
-                            MaterialPageRoute(builder: (context) => Detail()),
+                            MaterialPageRoute(builder: (context) => MyProfile()),
                             (route) => false);
                       },
                       heroTag: null,
