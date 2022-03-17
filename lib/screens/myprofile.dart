@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 
@@ -276,7 +278,88 @@ class _MyProfileState extends State<MyProfile> {
                       ),  
                                         ]),
                                   )
-                                ]))
+
+                                
+                                ])),
+                                Card(
+            child: Row(
+            children: <Widget>[
+              Expanded(
+                
+                flex: 1,
+                child: Image.network(
+                    'https://3.img-dpreview.com/files/p/TS1200x900~sample_galleries/1330372094/1693761761.jpg',
+                    height: 70,
+                    width: 70),
+              ),
+              Expanded(
+                flex: 1,
+                child: Column(
+                  mainAxisSize:MainAxisSize.min,
+                  crossAxisAlignment:CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "Building Community....",
+                      style: TextStyle(color: Colors.white, fontSize: 16,letterSpacing: 0.4),
+                      
+                    ),
+                    Text("Why Need Better Community?",
+                        style: TextStyle(color: Colors.grey, fontSize: 15,letterSpacing: 0.4),
+                        ),
+                    Text(
+                      "Read Time: 7 min",
+                      style: TextStyle(color: Colors.green, fontSize: 13,letterSpacing: 0.4),
+                     
+                    ),
+                    
+                  
+                  ],
+                ),
+              ),
+              
+            ],
+          ),
+        ),
+
+        Card(
+            child: Row(
+            children: <Widget>[
+              Expanded(
+                
+                flex: 1,
+                child: Image.network(
+                    'https://3.img-dpreview.com/files/p/TS1200x900~sample_galleries/1330372094/1693761761.jpg',
+                    height: 70,
+                    width: 70),
+              ),
+              Expanded(
+                flex: 1,
+                child: Column(
+                  mainAxisSize:MainAxisSize.min,
+                  crossAxisAlignment:CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "Why UX Is More....",
+                      style: TextStyle(color: Colors.white, fontSize: 16,letterSpacing: 0.4),
+                      
+                    ),
+                    Text("Why You Need UX In Design?",
+                        style: TextStyle(color: Colors.grey, fontSize: 15,letterSpacing: 0.4),
+                        ),
+                    Text(
+                      "Read Time: 7 min",
+                      style: TextStyle(color: Colors.green, fontSize: 13,letterSpacing: 0.4),
+                     
+                    ),
+                    
+                  
+                  ],
+                ),
+              ),
+              
+            ],
+          ),
+        )
                           ],
                         ),
                       ),
