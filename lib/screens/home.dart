@@ -356,6 +356,7 @@ class _HomeState extends State<Home> {
                                     ],
                                   ),
                                 ),
+                                
                                 Padding(
                                   padding: const EdgeInsets.symmetric(
                                       vertical: 10.0),

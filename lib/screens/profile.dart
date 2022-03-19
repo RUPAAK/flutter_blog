@@ -1,4 +1,5 @@
 import 'package:blog_app/common/animation/slide-transistion-route.dart';
+import 'package:blog_app/screens/comment.dart';
 import 'package:blog_app/screens/home.dart';
 import 'package:blog_app/screens/login/login-options.dart';
 import 'package:blog_app/screens/login/login-password.dart';
@@ -113,7 +114,7 @@ class Profile extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushAndRemoveUntil(
                             context,
-                            MaterialPageRoute(builder: (context) => MyProfile()),
+                            MaterialPageRoute(builder: (context) => Comment()),
                             (route) => false);
                       },
                       heroTag: null,
