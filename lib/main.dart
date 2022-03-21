@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
           child: Scaffold(
               body: initScreen == 0 || initScreen == null
                   ? SplashScreen()
-                  : LoginScreen()
+                  : Home()
                   )),
     );
   }

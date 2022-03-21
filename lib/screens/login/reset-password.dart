@@ -13,8 +13,8 @@ class ResetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double deviceHeight(BuildContext context) =>
-        MediaQuery.of(context).size.height;
+    // double deviceHeight(BuildContext context) =>
+    //     MediaQuery.of(context).size.height;
 
     return SafeArea(
         child: Scaffold(
