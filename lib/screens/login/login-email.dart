@@ -1,10 +1,13 @@
 import 'package:blog_app/common/animation/slide-transistion-route.dart';
+import 'package:blog_app/repositary/auth/signin.dart';
 import 'package:blog_app/screens/login/login-options.dart';
 import 'package:blog_app/screens/login/login-password.dart';
 import 'package:flutter/material.dart';
 
 class LoginEmail extends StatelessWidget {
-  const LoginEmail({Key? key}) : super(key: key);
+  LoginEmail({Key? key}) : super(key: key);
+
+  final api = SigninRepo();
 
   @override
   Widget build(BuildContext context) {
@@ -76,9 +79,10 @@ class LoginEmail extends StatelessWidget {
                     width: MediaQuery.of(context).size.width,
                     child: FloatingActionButton.extended(
                       onPressed: () {
-                        Navigator.of(context).push(SlideTransistionRoute(
-                            child: LoginPassword(),
-                            direction: AxisDirection.right));
+                        api.signinUser("rupakt525@gmail.com", "rupakthapa");
+                        // Navigator.of(context).push(SlideTransistionRoute(
+                        //     child: LoginPassword(),
+                        //     direction: AxisDirection.right));
                       },
                       heroTag: null,
                       label: Text('Continue'), // <-- Text
