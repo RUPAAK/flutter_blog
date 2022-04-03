@@ -16,7 +16,7 @@ Future<void> main() async {
   SharedPreferences pref = await SharedPreferences.getInstance();
   initScreen = await pref.getInt("initScreen");
   await pref.setInt("initScreen", 1);
-  await dotenv.load(fileName: ".env");
+  //await dotenv.load(fileName: ".env");
 
   runApp(const MyApp());
 }

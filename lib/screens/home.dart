@@ -1,7 +1,10 @@
+import 'package:blog_app/fake-data/blog.dart';
 import 'package:blog_app/screens/single-blog.dart';
 import 'package:flutter/material.dart';
 
 import '../common/animation/slide-transistion-route.dart';
+import '../common/truncate.dart';
+import '../modal/blog.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -35,6 +38,7 @@ class _HomeState extends State<Home> {
     "Entertainment",
     "Creative"
   ];
+
 
   String selectedOption = '';
 
@@ -157,14 +161,17 @@ class _HomeState extends State<Home> {
                             ],
                           )),
                       ListView.builder(
-                        itemCount: 4,
+                        itemCount: allBlogs.length,
                         shrinkWrap: true,
                         physics: NeverScrollableScrollPhysics(),
                         itemBuilder: (item, index) {
+                          Blog blog = allBlogs[index];
                           return GestureDetector(
                             onTap: () {
                               Navigator.of(context).push(SlideTransistionRoute(
-                                  child: SingleBlog(),
+                                  child: SingleBlog(
+                                    blog: blog,
+                                  ),
                                   direction: AxisDirection.right));
                             },
                             child: Column(
@@ -184,8 +191,8 @@ class _HomeState extends State<Home> {
                                                 children: [
                                                   CircleAvatar(
                                                     radius: 15,
-                                                    backgroundImage: NetworkImage(
-                                                        'https://www.filmibeat.com/ph-big/2011/09/1316088442375379.jpg'),
+                                                    backgroundImage:
+                                                        NetworkImage(blog.img),
                                                   ),
                                                 ],
                                               ),
@@ -199,7 +206,7 @@ class _HomeState extends State<Home> {
                                                               .spaceBetween,
                                                       children: [
                                                         Text(
-                                                          "Rupak Thapa Magar",
+                                                          blog.name,
                                                           style: TextStyle(
                                                               color:
                                                                   Colors.white),
@@ -211,11 +218,11 @@ class _HomeState extends State<Home> {
                                                             style: TextStyle(
                                                                 color: Colors
                                                                     .grey),
-                                                            children: const <
+                                                            children: <
                                                                 TextSpan>[
                                                               TextSpan(
                                                                   text:
-                                                                      '8/18/20201',
+                                                                      blog.date,
                                                                   style: TextStyle(
                                                                       fontWeight:
                                                                           FontWeight
@@ -241,11 +248,13 @@ class _HomeState extends State<Home> {
                                                               style: TextStyle(
                                                                   color: Colors
                                                                       .grey),
-                                                              children: const <
+                                                              children: <
                                                                   TextSpan>[
                                                                 TextSpan(
-                                                                    text:
-                                                                        'Why You Need UX In Design?',
+                                                                    text: truncate(
+                                                                        32,
+                                                                        blog
+                                                                            .title),
                                                                     style: TextStyle(
                                                                         fontWeight:
                                                                             FontWeight
@@ -275,7 +284,7 @@ class _HomeState extends State<Home> {
                                                   0.8,
                                               // color: Colors.red,
                                               child: Text(
-                                                "Why UX Design Is More Important Than UI Design.",
+                                                blog.subTitle,
                                                 style: TextStyle(
                                                     fontSize: 20,
                                                     fontWeight: FontWeight.bold,
@@ -286,6 +295,24 @@ class _HomeState extends State<Home> {
                                           ],
                                         ),
                                       ),
+                                      // Padding(
+                                      //   padding:
+                                      //       const EdgeInsets.only(top: 16.0),
+                                      //   child: Row(
+                                      //     children: [
+                                      //       Container(
+                                      //         child: Text(
+                                      //           'Why You Need UX In Design?',
+                                      //           style: TextStyle(
+                                      //               color: Colors.grey,
+                                      //               fontSize: 15,
+                                      //               letterSpacing: 0.4),
+                                      //         ),
+                                      //       ),
+                                      //     ],
+                                      //   ),
+                                      // ),
+
                                       Padding(
                                         padding:
                                             const EdgeInsets.only(top: 16.0),
@@ -293,24 +320,7 @@ class _HomeState extends State<Home> {
                                           children: [
                                             Container(
                                               child: Text(
-                                                'Why You Need UX In Design?',
-                                                style: TextStyle(
-                                                    color: Colors.grey,
-                                                    fontSize: 15,
-                                                    letterSpacing: 0.4),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(top: 16.0),
-                                        child: Row(
-                                          children: [
-                                            Container(
-                                              child: Text(
-                                                'As a founder of UI HUT i discover.....',
+                                                truncate(32, blog.desc),
                                                 style: TextStyle(
                                                     color: Colors.white,
                                                     fontSize: 16,
@@ -331,195 +341,7 @@ class _HomeState extends State<Home> {
                                           children: [
                                             Container(
                                               child: Text(
-                                                'Read Time : 5 min.',
-                                                style: TextStyle(
-                                                    color: Colors.green,
-                                                    fontSize: 13,
-                                                    letterSpacing: 0.4),
-                                              ),
-                                            ),
-                                            ElevatedButton(
-                                              onPressed: () {},
-                                              child: Icon(Icons.bookmark,
-                                                  color: Colors.white),
-                                              style: ElevatedButton.styleFrom(
-                                                shape: CircleBorder(),
-                                                primary: Colors
-                                                    .black, // <-- Button color
-                                                onPrimary: Colors
-                                                    .white, // <-- Splash color
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      vertical: 10.0),
-                                  child: Column(
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(top: 12.0),
-                                        child: Row(
-                                            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Column(
-                                                children: [
-                                                  CircleAvatar(
-                                                    radius: 15,
-                                                    backgroundImage: NetworkImage(
-                                                        'https://www.filmibeat.com/ph-big/2011/09/1316088442375379.jpg'),
-                                                  ),
-                                                ],
-                                              ),
-                                              SizedBox(width: 10),
-                                              Flexible(
-                                                child: Column(
-                                                  children: [
-                                                    Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      children: [
-                                                        Text(
-                                                          "Rupak Thapa Magar",
-                                                          style: TextStyle(
-                                                              color:
-                                                                  Colors.white),
-                                                        ),
-                                                        SizedBox(width: 50.0),
-                                                        RichText(
-                                                          text: TextSpan(
-                                                            text: 'Date : ',
-                                                            style: TextStyle(
-                                                                color: Colors
-                                                                    .grey),
-                                                            children: const <
-                                                                TextSpan>[
-                                                              TextSpan(
-                                                                  text:
-                                                                      '8/18/20201',
-                                                                  style: TextStyle(
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .bold,
-                                                                      color: Colors
-                                                                          .white)),
-                                                            ],
-                                                          ),
-                                                        )
-                                                      ],
-                                                    ),
-                                                    Row(
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .symmetric(
-                                                                  vertical:
-                                                                      4.0),
-                                                          child: RichText(
-                                                            text: TextSpan(
-                                                              text: 'Topic : ',
-                                                              style: TextStyle(
-                                                                  color: Colors
-                                                                      .grey),
-                                                              children: const <
-                                                                  TextSpan>[
-                                                                TextSpan(
-                                                                    text:
-                                                                        'Why You Need UX In Design?',
-                                                                    style: TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .bold,
-                                                                        color: Colors
-                                                                            .white)),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        )
-                                                      ],
-                                                    )
-                                                  ],
-                                                ),
-                                              )
-                                            ]),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(top: 16.0),
-                                        child: Row(
-                                          children: [
-                                            Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.8,
-                                              // color: Colors.red,
-                                              child: Text(
-                                                "Why UX Design Is More Important Than UI Design.",
-                                                style: TextStyle(
-                                                    fontSize: 20,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.white,
-                                                    letterSpacing: 0.4),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(top: 16.0),
-                                        child: Row(
-                                          children: [
-                                            Container(
-                                              child: Text(
-                                                'Why You Need UX In Design?',
-                                                style: TextStyle(
-                                                    color: Colors.grey,
-                                                    fontSize: 15,
-                                                    letterSpacing: 0.4),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(top: 16.0),
-                                        child: Row(
-                                          children: [
-                                            Container(
-                                              child: Text(
-                                                'As a founder of UI HUT i discover.....',
-                                                style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 16,
-                                                    letterSpacing: 0.4),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(top: 8.0),
-                                        child: Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Container(
-                                              child: Text(
-                                                'Read Time : 5 min.',
+                                                'Read Time : ${blog.min} min.',
                                                 style: TextStyle(
                                                     color: Colors.green,
                                                     fontSize: 13,
