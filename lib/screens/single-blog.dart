@@ -1,7 +1,12 @@
+import 'package:blog_app/common/truncate.dart';
 import 'package:flutter/material.dart';
 
+import '../modal/blog.dart';
+
 class SingleBlog extends StatefulWidget {
-  const SingleBlog({Key? key}) : super(key: key);
+  Blog blog;
+
+  SingleBlog({Key? key, required this.blog}) : super(key: key);
 
   @override
   State<SingleBlog> createState() => _SingleBlogState();
@@ -37,20 +42,6 @@ class _SingleBlogState extends State<SingleBlog> {
                           onPrimary: Colors.red, // <-- Splash color
                         ),
                       ),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Align(
-                                alignment: Alignment.center,
-                                child: Text(
-                                  'Blog Post',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18,
-                                      letterSpacing: 0.4),
-                                ))
-                          ]),
                       ElevatedButton(
                         onPressed: () {},
                         child: Icon(Icons.more_horiz, color: Colors.white),
@@ -79,8 +70,8 @@ class _SingleBlogState extends State<SingleBlog> {
                                       children: [
                                         CircleAvatar(
                                           radius: 30,
-                                          backgroundImage: NetworkImage(
-                                              'https://www.filmibeat.com/ph-big/2011/09/1316088442375379.jpg'),
+                                          backgroundImage:
+                                              NetworkImage(widget.blog.img),
                                         ),
                                       ],
                                     ),
@@ -93,7 +84,7 @@ class _SingleBlogState extends State<SingleBlog> {
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               Text(
-                                                "Rupak Thapa Magar",
+                                                widget.blog.name,
                                                 style: TextStyle(
                                                     color: Colors.white),
                                               ),
@@ -110,10 +101,12 @@ class _SingleBlogState extends State<SingleBlog> {
                                                     text: 'Topic : ',
                                                     style: TextStyle(
                                                         color: Colors.grey),
-                                                    children: const <TextSpan>[
+                                                    children: <TextSpan>[
                                                       TextSpan(
-                                                          text:
-                                                              'Why You Need UX In Design?',
+                                                          text: truncate(
+                                                              20,
+                                                              widget
+                                                                  .blog.title),
                                                           style: TextStyle(
                                                               fontWeight:
                                                                   FontWeight
@@ -140,7 +133,7 @@ class _SingleBlogState extends State<SingleBlog> {
                                         MediaQuery.of(context).size.width * 0.8,
                                     // color: Colors.red,
                                     child: Text(
-                                      "Why UX Design Is More Important Than UI Design.",
+                                      widget.blog.subTitle,
                                       style: TextStyle(
                                           fontSize: 20,
                                           fontWeight: FontWeight.bold,
@@ -159,55 +152,12 @@ class _SingleBlogState extends State<SingleBlog> {
                                     padding: const EdgeInsets.only(top: 16.0),
                                     child: Container(
                                       child: Text(
-                                        'User experience (UX) design is the process design teams use ti create products that provide meaningful and relevant experinces to users. This involve the design of the entire process of acquiring and interatiing the product, including aspects of branding,design,usuability and function.',
+                                        widget.blog.desc,
                                         textAlign: TextAlign.left,
-                                        maxLines: 7,
+                                        // maxLines: 7,
                                         style: TextStyle(
                                             color: Colors.grey,
-                                            fontSize: 15,
-                                            letterSpacing: 0.4),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                      padding: const EdgeInsets.only(top: 12.0),
-                                      child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(20),
-                                          child: Image(
-                                              image: NetworkImage(
-                                                  'https://mlnv5mmjwlcg.i.optimole.com/Cdi657k-Ww96y6qY/w:1080/h:628/q:75/https://www.theros.digital/wp-content/uploads/2020/06/ux-designer-web-designer.jpg')))),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 16.0),
-                                    child: Row(
-                                      children: [
-                                        Container(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.8,
-                                          // color: Colors.red,
-                                          child: Text(
-                                            "User Experiences Design!",
-                                            style: TextStyle(
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.white,
-                                                letterSpacing: 0.4),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 16.0),
-                                    child: Container(
-                                      child: Text(
-                                        'User experience design is the process designers use to build products that provide great experiences to their users. UX design refers to feelings and emotions users experience when interacting with  a product.',
-                                        textAlign: TextAlign.left,
-                                        style: TextStyle(
-                                            color: Colors.grey,
-                                            fontSize: 15,
+                                            fontSize: 16,
                                             letterSpacing: 0.4),
                                       ),
                                     ),
