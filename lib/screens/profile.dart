@@ -116,7 +116,7 @@ class Profile extends StatelessWidget {
                           Navigator.pushAndRemoveUntil(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Comment()),
+                                  builder: (context) => Home()),
                               (route) => false);
                         },
                         heroTag: null,

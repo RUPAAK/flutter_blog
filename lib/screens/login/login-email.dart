@@ -79,10 +79,10 @@ class LoginEmail extends StatelessWidget {
                     width: MediaQuery.of(context).size.width,
                     child: FloatingActionButton.extended(
                       onPressed: () {
-                        api.signinUser("rupakt525@gmail.com", "rupakthapa");
-                        // Navigator.of(context).push(SlideTransistionRoute(
-                        //     child: LoginPassword(),
-                        //     direction: AxisDirection.right));
+                        // api.signinUser("rupakt525@gmail.com", "rupakthapa");
+                        Navigator.of(context).push(SlideTransistionRoute(
+                            child: LoginPassword(),
+                            direction: AxisDirection.right));
                       },
                       heroTag: null,
                       label: Text('Continue'), // <-- Text
